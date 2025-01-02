@@ -77,6 +77,9 @@ def extract_email(profile):
         driver.quit()
 
 
+# Ensure the Output folder exists
+os.makedirs('Output', exist_ok=True)
+
 # Use ThreadPoolExecutor to process profiles concurrently
 with ThreadPoolExecutor(max_workers=4) as executor:
     results = list(executor.map(extract_email, profile_links))
